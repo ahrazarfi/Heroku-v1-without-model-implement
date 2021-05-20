@@ -3,7 +3,7 @@ var markerArray = [];
 function submit() {
   var val = $("#id_one").val();
   var xhr = new XMLHttpRequest();
-  xhr.open("POST", "http://34.134.207.199:8080", true);
+  xhr.open("POST", "http://127.0.0.1:5000", true);
   var data = new FormData();
   data.append("type", val);
   if (val != "cancer") {
@@ -13,18 +13,14 @@ function submit() {
   xhr.onreadystatechange = function () {
     var obj = JSON.parse(this.responseText)[0];
     if (!obj["empty"]) {
-      $("prediction-id").html(obj["cnv"]);
-      $("prediction-id").html(obj["dme"]);
-      $("prediction-id").html(obj["drusen"]);
-      $("prediction-id").html(obj["normal"]);
-      // if(parseInt(obj["pred_val"]) != 0){
+      $("prediction-id").html(obj["para"]);
+      $("prediction-id").html(obj["unin"]);
+      // if (parseInt(obj["pred_val"]) != 0) {
       //   plotMap(obj["places"]);
       //   addPlaces(obj["places"]);
       // }
-      $("#status").html("<b>" + obj["cnv"] + "</b>");
-      $("#status1").html("<b>" + obj["dme"] + "</b>");
-      $("#status2").html("<b>" + obj["drusen"] + "</b>");
-      $("#status3").html("<b>" + obj["normal"] + "</b>");
+      $("#status").html("<b>" + obj["para"] + "</b>");
+      $("#status1").html("<b>" + obj["unin"] + "</b>");
       document.getElementById("demo").innerHTML = "Analysis Report";
       clear();
       $("#result").html("<b>" + obj["pred_val"] + "</b>");

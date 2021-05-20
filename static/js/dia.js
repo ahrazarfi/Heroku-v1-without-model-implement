@@ -3,7 +3,7 @@ var markerArray = [];
 function submit() {
   var val = $("#id_one").val();
   var xhr = new XMLHttpRequest();
-  xhr.open("POST", "http://127.0.0.1:5000", true);
+  xhr.open("POST", "http://34.134.207.199:8080", true);
   var data = new FormData();
   data.append("type", val);
   if (val != "cancer") {
