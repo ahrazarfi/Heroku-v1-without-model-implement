@@ -385,4 +385,4 @@ def before_request():
 if __name__=="__main__":
   # port = int(os.environ.get("PORT", 5000))   
   app.before_request(before_request)
-  app.run("127.0.0.1",8080, debug = True)
+  app.run("0.0.0.0",5000, debug = True)
